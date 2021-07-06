@@ -1,7 +1,9 @@
 #!/bin/sh
 
 # copy from the image backup location to the volume mount
-cp -a /var/www/html_backup/vendor/* /var/www/html/vendor/
+echo "Synchronizing vendor files..."
+rsync -a --stats /var/www/cache/vendor/* /var/www/html/vendor/
+echo "Synchronized vendor files"
 
-# this next line runs the docker command
-exec "$@"
+# run PHP server
+exec php -S lumen:8000 -t public # port 8000 here will be overwritten by config

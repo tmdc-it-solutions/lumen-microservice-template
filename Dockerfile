@@ -1,15 +1,17 @@
 FROM php:7.3-fpm-alpine
 
+RUN apk add rsync
 RUN docker-php-ext-install pdo_mysql
 
-WORKDIR /var/www/html/
+# Set up cache directory
+RUN mkdir /var/www/cache
+WORKDIR /var/www/cache
 
 # Install composer
+RUN mkdir tests
+COPY composer.* ./
 RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
-COPY . .
 RUN composer install
 
-# Bundle app source
-RUN cp -a . /var/www/html_backup
-
-ENTRYPOINT [ "/var/www/html/entry-point.sh" ]
+# Move to actual working directory
+WORKDIR /var/www/html
