@@ -1,4 +1,4 @@
-FROM php:7.3-fpm-alpine
+FROM php:8.0-fpm-alpine
 
 RUN apk add rsync
 RUN docker-php-ext-install pdo_mysql
