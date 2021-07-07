@@ -1,6 +1,7 @@
 FROM php:8.0-fpm-alpine
 
 RUN apk add rsync
+RUN docker-php-ext-install sockets
 RUN docker-php-ext-install pdo_mysql
 
 # Set up cache directory
