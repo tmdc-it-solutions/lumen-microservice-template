@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\TestAction;
+
 class ExampleController extends Controller
 {
     /**
@@ -14,5 +16,13 @@ class ExampleController extends Controller
         //
     }
 
-    //
+    public function check() {
+        dispatch(TestAction::makeJob('haha'));
+
+        return 'sabong-user-service';
+    }
+
+    public function queue_test() {
+
+    }
 }

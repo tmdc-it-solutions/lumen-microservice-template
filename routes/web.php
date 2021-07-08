@@ -2,6 +2,8 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -13,6 +15,9 @@
 |
 */
 
-$router->get('/', function () use ($router) {
+Route::get('/', function () use ($router) {
     return 'Welcome to your microservice! Running: ' . $router->app->version();
 });
+
+Route::get('get', 'ExampleController@check');
+Route::post('message', 'ExampleController@queue_test');
