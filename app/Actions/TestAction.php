@@ -10,6 +10,11 @@ class TestAction
 
     public function handle(string $message)
     {
-        echo $message . PHP_EOL;
+        dispatch($this->makeJob());
+    }
+
+    public function asJob(string $message): void
+    {
+        $this->handle($message);
     }
 }

@@ -10,6 +10,11 @@ class EventServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        App::bindMethod(TestAction::class . '@handle', fn ($action) => $action->handle());
+        $this->bind(TestAction::class);
+    }
+
+    public function bind($class)
+    {
+        App::bindMethod($class . '@handle', fn ($action) => $action->handle());
     }
 }
