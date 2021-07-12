@@ -7,7 +7,7 @@ services:
             - "${APP_PORT:-8000}:8000"
         volumes:
             - .:/var/www/html
-        command: /var/www/html/entry-point.sh
+        command: /var/www/html/scripts/entry-point.sh
         networks:
             - microservice
         depends_on:

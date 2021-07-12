@@ -11,5 +11,3 @@ if ![ -d "$VENDOR_DIR" ]; then
 fi
 
 exec supervisord -c /etc/supervisord.conf 
-# run PHP server
-# exec php -S lumen:8000 -t public # port 8000 here will be overwritten by config
