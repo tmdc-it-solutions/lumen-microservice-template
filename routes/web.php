@@ -19,5 +19,5 @@ Route::get('/', function () use ($router) {
     return 'Welcome to your microservice! Running: ' . $router->app->version();
 });
 
-Route::get('get', 'ExampleController@check');
-Route::post('message', 'ExampleController@queue_test');
+Route::get('create', 'AccountController@create');
+Route::get('add-money', 'AccountController@addMoney');
