@@ -12,15 +12,3 @@ if (!function_exists('config_path')) {
         return app()->basePath() . '/config' . ($path ? '/' . $path : $path);
     }
 }
-
-if (!function_exists('publish_event')) {
-
-    /**
-     * Publishes an event to RabbitMQ and stores the event
-     */
-    function publish_event($event)
-    {
-        event($event);
-        publish($event);
-    }
-}

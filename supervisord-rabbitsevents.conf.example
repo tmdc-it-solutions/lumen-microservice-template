@@ -1,0 +1,12 @@
+# Example config file for rabbitevents. Manually define or autogenerate using `scripts/generaete-rabbitevent-conf.sh` in lumen container.
+
+[program:some.event.listener]
+directory=/var/www/html
+command=php artisan rabbitevents:listen some.event --memory=256 --timeout=60 --tries=3 --sleep=5
+user=appuser
+autostart=true
+autorestart=true
+stopasgroup=true
+killasgroup=true
+redirect_stderr=true
+stopwaitsecs=3600

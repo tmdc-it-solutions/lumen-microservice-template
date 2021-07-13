@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "637b27e11c47718c3f3883f663ae7f54",
+    "content-hash": "c6020e6d4b46d5a2a101ae68f13e842e",
     "packages": [
         {
             "name": "brick/math",
@@ -2201,6 +2201,52 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2021-06-15T17:58:52+00:00"
+        },
+        {
+            "name": "jozi/laravel-rabbitevents-sourcing",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jg-rivera/laravel-rabbitevents-sourcing.git",
+                "reference": "74b5b631cc45d00ba99d959772c9cb4784bdd049"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jg-rivera/laravel-rabbitevents-sourcing/zipball/74b5b631cc45d00ba99d959772c9cb4784bdd049",
+                "reference": "74b5b631cc45d00ba99d959772c9cb4784bdd049",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/lumen-framework": "^8.0",
+                "nuwber/rabbitevents": "^6.0",
+                "php": "^8.0",
+                "spatie/laravel-event-sourcing": "^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jozi\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jose Gabrielle Rivera",
+                    "email": "rivera.jga10@gmail.com"
+                }
+            ],
+            "description": "Integration between nuwber/rabbitevents and spatie/laravel-event-sourcing packages",
+            "support": {
+                "issues": "https://github.com/jg-rivera/laravel-rabbitevents-sourcing/issues",
+                "source": "https://github.com/jg-rivera/laravel-rabbitevents-sourcing/tree/1.0"
+            },
+            "time": "2021-07-12T07:47:20+00:00"
         },
         {
             "name": "laravel/lumen-framework",
@@ -6532,69 +6578,6 @@
                 }
             ],
             "time": "2021-06-24T08:13:00+00:00"
-        },
-        {
-            "name": "vladimir-yuldashev/laravel-queue-rabbitmq",
-            "version": "v11.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/vyuldashev/laravel-queue-rabbitmq.git",
-                "reference": "a5649faabfd224365b7c363f5e449777316d8627"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/vyuldashev/laravel-queue-rabbitmq/zipball/a5649faabfd224365b7c363f5e449777316d8627",
-                "reference": "a5649faabfd224365b7c363f5e449777316d8627",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "illuminate/queue": "^8.0",
-                "php": "^7.3|^8.0",
-                "php-amqplib/php-amqplib": "^2.12|^3.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.17",
-                "laravel/horizon": "^5.0",
-                "mockery/mockery": "^1.0",
-                "orchestra/testbench": "^6.0",
-                "phpunit/phpunit": "^9.3"
-            },
-            "suggest": {
-                "ext-pcntl": "Required to use all features of the queue consumer."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "11.0-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "VladimirYuldashev\\LaravelQueueRabbitMQ\\LaravelQueueRabbitMQServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "VladimirYuldashev\\LaravelQueueRabbitMQ\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Vladimir Yuldashev",
-                    "email": "misterio92@gmail.com"
-                }
-            ],
-            "description": "RabbitMQ driver for Laravel Queue. Supports Laravel Horizon.",
-            "support": {
-                "issues": "https://github.com/vyuldashev/laravel-queue-rabbitmq/issues",
-                "source": "https://github.com/vyuldashev/laravel-queue-rabbitmq/tree/v11.3.0"
-            },
-            "time": "2021-07-06T00:05:52+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

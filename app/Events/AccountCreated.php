@@ -2,7 +2,9 @@
 
 namespace App\Events;
 
-class AccountCreated extends ShouldBeStoredAndPublished
+use Jozi\Events\StoredRabbitEvent;
+
+class AccountCreated extends StoredRabbitEvent
 {
     public $eventKey = 'account.created';
 
