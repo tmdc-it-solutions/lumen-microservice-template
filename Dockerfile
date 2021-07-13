@@ -33,3 +33,4 @@ WORKDIR /var/www/html
 
 # Add bash alias for PHPUnit
 RUN echo 'alias phpunit="vendor/bin/phpunit"' >> ~/.bashrc
+RUN source ~/.bashrc
