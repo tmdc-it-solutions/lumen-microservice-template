@@ -10,11 +10,5 @@ class EventServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        App::bindMethod(MoneyAdded::class . '@handle', fn ($action) => $action->handle());
-    }
-
-    public function bind($class)
-    {
-
     }
 }

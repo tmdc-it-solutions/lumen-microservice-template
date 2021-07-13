@@ -2204,16 +2204,16 @@
         },
         {
             "name": "jozi/laravel-rabbitevents-sourcing",
-            "version": "1.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jg-rivera/laravel-rabbitevents-sourcing.git",
-                "reference": "74b5b631cc45d00ba99d959772c9cb4784bdd049"
+                "reference": "541777f0255e6f90547112b968139b9d6c2d9df7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jg-rivera/laravel-rabbitevents-sourcing/zipball/74b5b631cc45d00ba99d959772c9cb4784bdd049",
-                "reference": "74b5b631cc45d00ba99d959772c9cb4784bdd049",
+                "url": "https://api.github.com/repos/jg-rivera/laravel-rabbitevents-sourcing/zipball/541777f0255e6f90547112b968139b9d6c2d9df7",
+                "reference": "541777f0255e6f90547112b968139b9d6c2d9df7",
                 "shasum": ""
             },
             "require": {
@@ -2244,9 +2244,9 @@
             "description": "Integration between nuwber/rabbitevents and spatie/laravel-event-sourcing packages",
             "support": {
                 "issues": "https://github.com/jg-rivera/laravel-rabbitevents-sourcing/issues",
-                "source": "https://github.com/jg-rivera/laravel-rabbitevents-sourcing/tree/1.0"
+                "source": "https://github.com/jg-rivera/laravel-rabbitevents-sourcing/tree/1.0.1"
             },
-            "time": "2021-07-12T07:47:20+00:00"
+            "time": "2021-07-13T02:01:04+00:00"
         },
         {
             "name": "laravel/lumen-framework",
