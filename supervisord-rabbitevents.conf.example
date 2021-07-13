@@ -1,4 +1,4 @@
-# Example config file for rabbitevents. Manually define or autogenerate using `scripts/generaete-rabbitevent-conf.sh` in lumen container.
+# Example config file for rabbitevents. Manually define or autogenerate using `scripts/generate-rabbitevent-conf.sh` in lumen container.
 
 [program:some.event.listener]
 directory=/var/www/html
