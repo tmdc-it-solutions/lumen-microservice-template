@@ -1,10 +1,6 @@
 name: Sync changes from template
 
 on:
-    # Run when this file changes
-    push:
-        paths:
-            - .github/workflows/sync-from-template.yml
     # Run when manually triggered
     workflow_dispatch:
 
