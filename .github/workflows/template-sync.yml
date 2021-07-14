@@ -1,6 +1,6 @@
 on:
     # Run when manually triggered
-    workflow-dispatch:
+    workflow_dispatch:
 jobs:
     repo-sync:
         # Do not run on template itself
