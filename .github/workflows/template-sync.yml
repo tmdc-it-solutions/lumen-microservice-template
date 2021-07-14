@@ -1,0 +1,19 @@
+on:
+    # Run when manually triggered
+    workflow-dispatch:
+jobs:
+    repo-sync:
+        # Do not run on template itself
+        if: github.repository != 'tmdc-it-solutions/lumen-microservice-template'
+        name: Sync changes from tmdc-it-solutions/lumen-microservice-template
+        runs-on: ubuntu-latest
+        steps:
+            # To use this repository's private action, you must check out the repository
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: actions-template-sync
+              uses: AndreasAugustin/actions-template-sync@v0.1.3-draft
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  source_repo_path: https://github.com/tmdc-it-solutions/lumen-microservice-template.git
+                  upstream_branch: main
