@@ -5,12 +5,14 @@ use Laravel\Lumen\Testing\DatabaseTransactions;
 
 class ServiceDiscoveryTest extends TestCase
 {
+    public $hello_world;
+    
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function should_get_correct_name_and_version()
+    public function testShouldGetCorrectNameAndVersion()
     {
         $this->json('GET', '/v1/discovery')
             ->seeJson([

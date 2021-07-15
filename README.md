@@ -41,6 +41,9 @@ Run tests
 $ phpunit
 ```
 
+## Coding Style
+This template follows the PSR-2 coding standard and the PSR-4 autoloading standard.
+
 ## Acknowledgements
 
 -   [Event-Driven Architecture Primer](https://www.youtube.com/watch?v=STKCRSUsyP0)

@@ -16,7 +16,6 @@ services:
         image: mysql:8.0
         ports:
             - "${DB_PORT:-3306}:3306"
-        restart: always
         environment:
             MYSQL_DATABASE: ${DB_DATABASE}
             MYSQL_USER: ${DB_USERNAME}

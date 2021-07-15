@@ -30,7 +30,3 @@ COPY supervisord.conf /etc/supervisord.conf
 
 # Move to actual working directory
 WORKDIR /var/www/html
-
-# Add bash alias for PHPUnit
-RUN echo 'alias phpunit="vendor/bin/phpunit"' >> ~/.bashrc
-RUN source ~/.bashrc
