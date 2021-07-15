@@ -42,6 +42,5 @@
     <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
         <exclude-pattern>database/migrations/*</exclude-pattern>
         <exclude-pattern>database/seeds/*</exclude-pattern>
-        <exclude-pattern>tests/*</exclude-pattern>
     </rule>
 </ruleset>

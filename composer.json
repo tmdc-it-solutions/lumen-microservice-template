@@ -51,6 +51,7 @@
         ],
         "lint": "./vendor/bin/phpcs",
         "fix-lint": "./vendor/bin/phpcbf",
-        "test": "./vendor/bin/phpunit"
+        "test": "./vendor/bin/phpunit",
+        "test-dox": "./vendor/bin/phpunit --testdox"
     }
 }
