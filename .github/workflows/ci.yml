@@ -40,7 +40,7 @@ jobs:
               run: composer install --no-interaction --no-ansi --prefer-dist --no-progress
 
             - name: Acquire .env
-              run: cp .env.example .env
+              run: cp .env.ci .env
 
             - name: Run lint
               run: composer lint
