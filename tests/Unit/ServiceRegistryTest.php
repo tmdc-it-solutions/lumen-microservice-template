@@ -6,6 +6,15 @@ use Tests\TestCase;
 
 class ServiceRegistryTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        if (env('GITHUB_ACTIONS') === true) {
+            $this->markTestSkipped('All tests in this file are inactive for this server configuration!');
+        }
+    }
+
     public function testShouldHaveProperAppName()
     {
         $pattern = '/[a-z]+\-service/';

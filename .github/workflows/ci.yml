@@ -36,7 +36,10 @@ jobs:
                       ${{ runner.os }}-php-
 
             - name: Install dependencies
-              run: composer install --prefer-dist --no-progress
+              run: composer install --no-interaction --no-ansi --prefer-dist --no-progress
+
+            - name: Acquire .env
+              run: cp .env.example .env
 
             - name: Run lint
               run: composer lint
