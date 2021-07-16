@@ -35,5 +35,18 @@ class AuthServiceProvider extends ServiceProvider
                 return User::where('api_token', $request->input('api_token'))->first();
             }
         });
+
+        $this->grantSuperAdminPermissions();
+    }
+
+    /**
+     * Implicitly grant "Super Admin" role all permissions
+     * This works in the app by using gate-related functions like auth()->user->can() and @can()
+     */
+    private function grantSuperAdminPermissions()
+    {
+        Gate::before(function ($user, $ability) {
+            return $user->hasRole('Super Admin') ? true : null;
+        });
     }
 }
