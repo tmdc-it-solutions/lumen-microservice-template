@@ -1,0 +1,1 @@
+GRANT ALL PRIVILEGES ON testing_database.* TO 'appuser'@'%';

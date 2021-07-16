@@ -21,8 +21,10 @@ services:
             MYSQL_USER: ${DB_USERNAME}
             MYSQL_PASSWORD: ${DB_PASSWORD}
             MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-        command: mysqld --default-authentication-plugin=mysql_native_password # required to be specified as of MySQL 8.0
+        command: mysqld --init-file /data/application/init.sql
+                        --default-authentication-plugin=mysql_native_password # required to be specified as of MySQL 8.0
         volumes:
+            - ./database/init.sql:/data/application/init.sql
             - mysql-data:/var/lib/mysql:rw
         networks:
             - microservice
