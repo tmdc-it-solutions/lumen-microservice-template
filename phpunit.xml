@@ -11,7 +11,7 @@
         <env name="SESSION_DRIVER" value="array" />
         <env name="QUEUE_DRIVER" value="sync" />
 
-        <!-- Use root user to create testing_database instance -->
+        <!-- Access testing_database instance -->
         <env name="DB_DATABASE" value="testing_database" />
 
         <!-- Use local RabbitMQ instance for testing-->
