@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd" bootstrap="vendor/autoload.php" colors="true">
+    <testsuites>
+        <testsuite name="Application Test Suite">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="APP_ENV" value="testing" />
+        <env name="CACHE_DRIVER" value="array" />
+        <env name="SESSION_DRIVER" value="array" />
+        <env name="QUEUE_DRIVER" value="sync" />
+
+        <!-- Access testing_database instance. Use this on your `phpunit.xml` -->
+        <!-- <env name="DB_DATABASE" value="testing_database" /> -->
+
+        <!-- Use local RabbitMQ instance for testing-->
+        <env name="RABBITEVENTS_HOST" value="127.0.0.1" />
+        <env name="RABBITEVENTS_PORT" value="5672" />
+        <env name="RABBITEVENTS_USER" value="guest" />
+        <env name="RABBITEVENTS_PASSWORD" value="guest" />
+        <env name="RABBITEVENTS_VHOST" value="/" />
+        <env name="RABBITEVENTS_LOG_ENABLED" value="true" />
+    </php>
+</phpunit>
