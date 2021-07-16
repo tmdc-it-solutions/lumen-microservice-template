@@ -20,7 +20,7 @@ jobs:
                     MYSQL_PASSWORD: secret
                     MYSQL_DATABASE: database
                 volumes:
-                    - ./database/init.sql:/data/application/init.sql
+                    - /database/init.sql:/data/application/init.sql
                 options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
         steps:
             - name: Grant privileges
