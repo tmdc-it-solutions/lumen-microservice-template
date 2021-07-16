@@ -4,7 +4,10 @@ A template for TMDC microservices. Powered by Lumen, MySQL, and RabbitMQ. The ar
 
 ## Installation
 
-Clone the repository. Install using Docker. It will build once on deployment.
+1. Clone the repository.
+2. Copy `.env.example` as `.env`. Tweak accordingly.
+3. Copy `phpunit.xml.dist` as `phpunit.xml`. Tweak accordingly.
+4. Build using `docker-compose`. It will reference your `.env`.
 
 ```bash
 $ docker-compose up
@@ -35,10 +38,21 @@ Run artisan commands
 $ php artisan
 ```
 
-Run tests
+Run linting - check for coding style violations
 
 ```bash
-$ phpunit
+$ composer lint
+```
+
+Run tests - runs the created unit and functional tests found in the `tests` folder
+
+```bash
+$ composer test
+```
+
+Run more informative and verbose tests
+```bash
+$ composer test-dox
 ```
 
 ## Coding Style
