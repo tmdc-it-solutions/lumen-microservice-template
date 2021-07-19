@@ -59,7 +59,7 @@ class JaegerServiceProvider extends ServiceProvider
 
         // Listen for the request handled event and set more tags for the trace
         Event::listen(RequestHandled::class, function (RequestHandled $e) {
-            app('context.tracer.globalSpan')->setTags([
+            app('jaeger.tracer.globalSpan')->setTags([
                 'user_id' => auth()->user()->id ?? "-",
                 'company_id' => auth()->user()->company_id ?? "-",
 
