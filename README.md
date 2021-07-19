@@ -38,24 +38,29 @@ Run artisan commands
 $ php artisan
 ```
 
-Run linting - check for coding style violations
+Run linting - check for coding style violations:
 
 ```bash
 $ composer lint
 ```
 
-Run tests - runs the created unit and functional tests found in the `tests` folder
+Run tests - runs the created unit and functional tests found in the `tests` folder:
 
 ```bash
 $ composer test
 ```
 
-Run more informative and verbose tests
+Run more informative and verbose tests:
 ```bash
 $ composer test-dox
 ```
 
-When event listeners have been created, you can generate the `supervisord-rabbitevents.conf` using `composer generate-rabbitevents-conf` command.
+When event listeners have been created, you can generate the `supervisord-rabbitevents.conf` using:
+
+```bash
+$ composer generate-rabbitevents-conf
+```
+
 It will create the RabbitMQ consumers for each listened event.
 
 ## Coding Style
