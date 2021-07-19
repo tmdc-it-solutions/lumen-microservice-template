@@ -55,6 +55,7 @@
         "lint": "./vendor/bin/phpcs",
         "fix-lint": "./vendor/bin/phpcbf",
         "test": "./vendor/bin/phpunit",
-        "test-dox": "./vendor/bin/phpunit --testdox"
+        "test-dox": "./vendor/bin/phpunit --testdox",
+        "generate-rabbitevents-conf": "./scripts/generate-rabbitevents-conf.sh"
     }
 }

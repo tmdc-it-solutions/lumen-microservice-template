@@ -55,6 +55,9 @@ Run more informative and verbose tests
 $ composer test-dox
 ```
 
+When event listeners have been created, you can generate the `supervisord-rabbitevents.conf` using `composer generate-rabbitevents-conf` command.
+It will create the RabbitMQ consumers for each listened event.
+
 ## Coding Style
 This template follows the PSR-2 coding standard and the PSR-4 autoloading standard.
 

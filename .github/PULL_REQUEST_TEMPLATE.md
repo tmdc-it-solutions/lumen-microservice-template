@@ -1,9 +1,7 @@
 <!--
-We appreciate the effort for this pull request but before that please make sure you read the contribution guidelines given above, then fill out the blanks below.
-
 Please don't open huge pull requests and keep one pull request solving one problem.
 
-Please enter the issue number you are resolving in your PR after one of the following words [Fixes, Closes, Resolves]. This will auto-link these issues and close them when this PR is merged!
+If applicable, please enter the issue number you are resolving in your PR after one of the following words [Fixes, Closes, Resolves]. This will auto-link these issues and close them when this PR is merged!
 e.g. 
 Fixes #1
 Closes #2
@@ -15,9 +13,9 @@ Closes #2
 
 ### Checklist
 - [ ] I updated my feature branch with the `main` branch.
-- [ ] I have made a material change to the repo (functionality, testing, spelling, grammar)
-- [ ] I have read the [Contribution Guide] and my PR follows them.
+- [ ] I made some changes to the repo (functionality, testing, spelling, grammar).
 - [ ] I have added tests that prove my fix is effective or that my feature works.
-- [ ] I have added in-line documentation to the code I modified
+- [ ] I have ran `composer lint` and it is successful.
+- [ ] I have ran `composer test` and it is successful.
 
 Closes #

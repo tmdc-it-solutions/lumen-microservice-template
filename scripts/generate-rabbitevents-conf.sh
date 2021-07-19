@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CONFIG_FILE=event-listeners.conf
+CONFIG_FILE=supervisord-rabbitevents.conf
 MEMORY_ALLOCATION_MB=256
 
 writeEvent() {
