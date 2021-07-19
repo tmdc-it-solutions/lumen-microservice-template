@@ -14,7 +14,9 @@
     <arg value="s" />
 
     <!-- Use PSR-2 as a base -->
-    <rule ref="PSR2" />
+    <rule ref="PSR2">
+        <exclude name="Generic.Files.LineLength" />
+    </rule>
 
     <!-- Uncomment to use colors in progress or report -->
     <!-- arg name="colors" / -->
