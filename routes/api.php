@@ -20,7 +20,7 @@ Route::get('/', function () use ($router) {
 });
 
 // Load all v1 routes
-$router->group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function () use ($router) {
+$router->group(['prefix' => 'api/v1', 'namespace' => 'Api\V1'], function () use ($router) {
     foreach (glob(__DIR__ . '/v1/*.php') as $filename) {
         include $filename;
     }
