@@ -62,6 +62,7 @@ $app->singleton(
 $app->configure('app');
 $app->configure('queue');
 $app->configure('permission');
+$app->configure('rabbitevents');
 
 /*
 |--------------------------------------------------------------------------
@@ -74,9 +75,9 @@ $app->configure('permission');
 |
 */
 
-// $app->middleware([
-//     App\Http\Middleware\ExampleMiddleware::class
-// ]);
+$app->middleware([
+    App\Http\Middleware\RequestHandleMiddleware::class
+]);
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
@@ -102,8 +103,7 @@ $app->register(App\Providers\RabbitEventsServiceProvider::class);
 $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
 $app->register(Spatie\EventSourcing\EventSourcingServiceProvider::class);
 
-$app->alias('cache', \Illuminate\Cache\CacheManager::class);  // if you don't have this already
-
+$app->alias('cache', \Illuminate\Cache\CacheManager::class);
 $app->register(Spatie\Permission\PermissionServiceProvider::class);
 
 /*

@@ -18,6 +18,7 @@ class JaegerServiceProvider extends ServiceProvider
     {
         $this->registerConfig();
         $this->registerGlobalTracer();
+        $this->registerListeners();
     }
 
     protected function registerConfig(): void
