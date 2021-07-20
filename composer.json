@@ -10,6 +10,8 @@
     "type": "project",
     "require": {
         "php": "^7.3|^8.0",
+        "dingo/api": "^3.0",
+        "firebase/php-jwt": "^5.4",
         "flipbox/lumen-generator": "^8.2",
         "jonahgeorge/jaeger-client-php": "^1.2",
         "jozi/laravel-rabbitevents-sourcing": "^1.0",
@@ -56,6 +58,7 @@
         "fix-lint": "./vendor/bin/phpcbf",
         "test": "./vendor/bin/phpunit",
         "test-dox": "./vendor/bin/phpunit --testdox",
-        "generate-rabbitevents-conf": "./scripts/generate-rabbitevents-conf.sh"
+        "make-rabbitevents-conf": "./scripts/generate-rabbitevents-conf.sh",
+        "make-api-doc": "php artisan api:docs --output-file DOCUMENTATION.apib"
     }
 }

@@ -1,21 +1,11 @@
 <?php
 
-/** @var \Laravel\Lumen\Routing\Router $router */
+/** @var \Dingo\Api\Routing\Router $api */
 
-$router->group(['prefix' => 'discovery'], function () use ($router) {
+$api->group(['prefix' => 'discovery'], function ($api) {
 
-    $router->get('', [
+    $api->get('', [
         'as' => 'discovery.index',
         'uses' => 'ServiceDiscoveryController@index'
-    ]);
-
-    $router->get('name', [
-        'as' => 'discovery.name',
-        'uses' => 'ServiceDiscoveryController@name'
-    ]);
-
-    $router->get('version', [
-        'as' => 'discovery.version',
-        'uses' => 'ServiceDiscoveryController@version'
     ]);
 });

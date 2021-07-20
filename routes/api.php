@@ -1,8 +1,6 @@
 <?php
 
-/** @var \Laravel\Lumen\Routing\Router $router */
-
-use Illuminate\Support\Facades\Route;
+/** @var \Dingo\Api\Routing\Router $api */
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () use ($router) {
-    return 'Welcome to your microservice! Running: ' . $router->app->version();
-});
+$api = app('Dingo\Api\Routing\Router');
 
-// Load all v1 routes
-$router->group(['prefix' => 'api/v1', 'namespace' => 'Api\V1'], function () use ($router) {
-    foreach (glob(__DIR__ . '/v1/*.php') as $filename) {
-        include $filename;
-    }
+$api->version('v1', function ($api) {
+    $api->group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function () use ($api) {
+        foreach (glob(__DIR__ . '/v1/*.php') as $filename) {
+            include $filename;
+        }
+    });
 });
