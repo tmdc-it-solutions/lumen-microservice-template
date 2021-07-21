@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use Dingo\Api\Routing\Helpers;
 
 /**
  * Service discovery endpoints for identity and health checking.
@@ -11,7 +10,6 @@ use Dingo\Api\Routing\Helpers;
  */
 class ServiceDiscoveryController extends Controller
 {
-    use Helpers;
 
     /**
      * Get the service name and version
