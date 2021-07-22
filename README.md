@@ -8,7 +8,7 @@ A template for TMDC microservices. Powered by Lumen, MySQL, and RabbitMQ. The ar
 2. Copy `.env.example` as `.env`. Tweak accordingly.
 3. Copy `phpunit.xml.dist` as `phpunit.xml`. Tweak accordingly.
 4. Provide `storage/keys/oauth-public.key`. It is a public RSA key provided by the API gateway.
-5. Build using `docker-compose`. It will reference your `.env`.
+5. Build using `docker-compose`. It will reference your `.env` and build on first time being upped.
 
 ```bash
 $ docker-compose up
@@ -28,11 +28,15 @@ If your host is machine is running on Linux, you can setup a bash alias in your 
 alias lumen='bash scripts/lumen-shell.sh'
 ```
 
-Then you can access a Lumen shell using:
+Then you can quickly access a Lumen shell using:
 
 ```bash
 $ lumen
 ```
+
+## Making Requests
+
+To interface with the API, requests sent to it must have a proper `Accept` header like: `Accept: application/vnd.APP_NAME.v1+json`. This is used to let the API know what API version the request needs. See [Dingo Documentation](https://github.com/dingo/api/wiki/Making-Requests-To-Your-API) for more information. But normally, the API gateway handles this for you.
 
 ## Container Commands
 
@@ -70,13 +74,13 @@ $ composer make-rabbitevents-conf
 
 It will create the RabbitMQ consumers for each listened event.
 
-Create API documentation using [dingo/api](https://github.com/dingo/api/wiki/API-Blueprint-Documentation) that is API Blueprint 1A standard compliant.
+Create basic API documentation using [dingo/api](https://github.com/dingo/api/wiki/API-Blueprint-Documentation) that is API Blueprint 1A standard compliant.
 
 ```bash
 $ composer make-api-doc
 ```
 
-You can view the generated `DOCUMENTATION.apib` using a VSCode extension: [API Blueprint Viewer](https://marketplace.visualstudio.com/items?itemName=develiteio.api-blueprint-viewer)
+You can view the generated `DOCUMENTATION.apib` using a VSCode extension: [API Blueprint Viewer](https://marketplace.visualstudio.com/items?itemName=develiteio.api-blueprint-viewer) or any other supported `apib` parser.
 
 ## Coding Style
 
