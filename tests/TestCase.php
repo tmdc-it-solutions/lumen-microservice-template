@@ -13,6 +13,18 @@ abstract class TestCase extends BaseTestCase
      */
     public function createApplication()
     {
-        return require __DIR__.'/../bootstrap/app.php';
+        return require __DIR__ . '/../bootstrap/app.php';
+    }
+
+    /**
+     * Create headers array with Accept header attached.
+     *
+     * @return array
+     */
+    public function withAcceptHeader(array $headers)
+    {
+        $subtype = env('API_SUBTYPE', 'appname');
+        $headers['Accept'] = "application/vnd.$subtype.v1+json";
+        return $headers;
     }
 }

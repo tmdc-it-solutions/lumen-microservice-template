@@ -1,7 +1,7 @@
 <?php
 
 namespace Tests\Feature;
-    
+
 use Tests\TestCase;
 
 class ServiceDiscoveryTest extends TestCase
@@ -9,7 +9,10 @@ class ServiceDiscoveryTest extends TestCase
 
     public function testShouldGetCorrectNameAndVersion()
     {
-        $this->json('GET', '/api/v1/discovery')
+        $data = [];
+        $headers = $this->withAcceptHeader([]);
+
+        $this->json('GET', '/api/discovery', $data, $headers)
             ->seeJson([
                 'name' => config('app.name'),
                 'version' => app()->version()
