@@ -15,10 +15,8 @@
 
 $api = app('Dingo\Api\Routing\Router');
 
-$api->version('v1', function ($api) {
-    $api->group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function () use ($api) {
-        foreach (glob(__DIR__ . '/v1/*.php') as $filename) {
-            include $filename;
-        }
-    });
+$api->version('v1', ['namespace' => 'App\Http\Controllers\Api\V1'], function ($api) {
+    foreach (glob(__DIR__ . '/v1/*.php') as $filename) {
+        include $filename;
+    }
 });
