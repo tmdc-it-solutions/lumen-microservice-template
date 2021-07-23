@@ -63,6 +63,7 @@ $app->configure('app');
 $app->configure('queue');
 $app->configure('permission');
 $app->configure('rabbitevents');
+$app->configure('roles');
 
 /*
 |--------------------------------------------------------------------------
@@ -107,7 +108,7 @@ $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
 $app->register(Spatie\EventSourcing\EventSourcingServiceProvider::class);
 
 $app->alias('cache', \Illuminate\Cache\CacheManager::class);
-$app->register(Spatie\Permission\PermissionServiceProvider::class);
+$app->register(Silber\Bouncer\BouncerServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

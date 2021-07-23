@@ -18,8 +18,8 @@
         "laravel/lumen-framework": "^8.0",
         "lorisleiva/laravel-actions": "^2.1",
         "nuwber/rabbitevents": "^6.0",
+        "silber/bouncer": "v1.0.0-rc.10",
         "spatie/laravel-event-sourcing": "^5.0",
-        "spatie/laravel-permission": "^4.2",
         "tymon/jwt-auth": "^1.0.2"
     },
     "require-dev": {
@@ -59,6 +59,7 @@
         "test": "./vendor/bin/phpunit",
         "test-dox": "./vendor/bin/phpunit --testdox",
         "make-rabbitevents-conf": "./scripts/generate-rabbitevents-conf.sh",
-        "make-api-doc": "php artisan api:docs --output-file DOCUMENTATION.apib"
+        "make-api-doc": "php artisan api:docs --output-file DOCUMENTATION.apib",
+        "make-permissions": "php artisan db:seed --class=BouncerSeeder"
     }
 }
