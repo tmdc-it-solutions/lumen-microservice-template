@@ -61,7 +61,6 @@ $app->singleton(
 
 $app->configure('app');
 $app->configure('queue');
-$app->configure('permission');
 $app->configure('rabbitevents');
 $app->configure('roles');
 
