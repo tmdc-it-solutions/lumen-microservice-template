@@ -6,6 +6,11 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateSnapshotsTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('snapshots', function (Blueprint $table) {
@@ -18,5 +23,15 @@ class CreateSnapshotsTable extends Migration
 
             $table->index('aggregate_uuid');
         });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('snapshots');
     }
 }

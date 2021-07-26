@@ -6,6 +6,11 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateStoredEventsTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('stored_events', function (Blueprint $table) {
@@ -22,5 +27,15 @@ class CreateStoredEventsTable extends Migration
 
             $table->unique(['aggregate_uuid', 'aggregate_version']);
         });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('stored_events');
     }
 }
