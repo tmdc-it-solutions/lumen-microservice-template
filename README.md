@@ -1,6 +1,7 @@
 # TMDC Lumen Microservice Template
 
 A template for TMDC microservices. Powered by Lumen, MySQL, and RabbitMQ. The architecture is event-driven and also follows the event sourcing paradigm.
+Long-lived distributed transactions follow the event/choreography-based [Saga pattern](https://blog.couchbase.com/saga-pattern-implement-business-transactions-using-microservices-part/).
 
 ## Installation
 
