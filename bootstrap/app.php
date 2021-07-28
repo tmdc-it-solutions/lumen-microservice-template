@@ -79,10 +79,7 @@ $app->middleware([
     App\Http\Middleware\RequestHandleMiddleware::class
 ]);
 
-$app->routeMiddleware([
-    'permission' => Spatie\Permission\Middlewares\PermissionMiddleware::class,
-    'role'       => Spatie\Permission\Middlewares\RoleMiddleware::class,
-]);
+$app->routeMiddleware([]);
 
 /*
 |--------------------------------------------------------------------------
