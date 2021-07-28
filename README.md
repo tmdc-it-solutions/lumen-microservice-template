@@ -43,6 +43,27 @@ Then you can quickly access a Lumen shell using:
 $ lumen
 ```
 
+### Makefile
+
+Alternatively, you can use `make` and the provided `Makefile` to perfom commonly used commands.
+
+Run docker-compose services in detached mode:
+
+```bash
+$ make up
+```
+
+Shutdown docker-compose services:
+
+```bash
+$ make down
+```
+
+Access a Lumen shell:
+
+```bash
+$ make shell
+```
 ## Making Requests
 
 To interface with the API, requests sent to it must have a proper `Accept` header like:
