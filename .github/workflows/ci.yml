@@ -42,6 +42,9 @@ jobs:
             - name: Acquire .env
               run: cp .env.ci .env
 
+            - name: Copy microservice registry stub to providers
+              run: cp app/Providers/Stub/MicroserviceRegistryProvider.stub app/Providers/MicroserviceRegistryProvider.php
+
             - name: Run lint
               run: composer lint
 
