@@ -11,7 +11,8 @@ Long-lived distributed transactions follow the event/choreography-based [Saga pa
 4. Provide necessary keys in `storage/keys` directory.
     - `oauth-private.key` - It is a private RSA key generated. It is used to generate access tokens for clients to use. This is required by issuers.
     - `oauth-public.key` - It is a public RSA key provided by the API gateway. It is used for verifying the signature of access tokens. This is required by clients.
-5. Build using `docker-compose` (See Usage).
+5. Copy `app/Providers/Stub/MicroserviceRegistryProvider.stub` to `app/Providers/MicroserviceRegistryProvider.php`. Tweak accordingly.
+6. Build using `docker-compose` (See Usage).
 
 ## Usage
 
@@ -46,6 +47,12 @@ $ lumen
 ### Makefile
 
 Alternatively, you can use `make` and the provided `Makefile` to perfom commonly used commands.
+
+Run docker-compose build:
+
+```bash
+$ make build
+```
 
 Run docker-compose services in detached mode:
 

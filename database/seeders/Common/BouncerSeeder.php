@@ -5,7 +5,7 @@ namespace Database\Seeders\Common;
 use Illuminate\Database\Seeder;
 use Silber\Bouncer\BouncerFacade as Bouncer;
 
-abstract class BaseBouncerSeeder extends Seeder
+class BouncerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,8 +14,8 @@ abstract class BaseBouncerSeeder extends Seeder
      */
     public function run()
     {
-        $this->registerDefaults();
-        $this->register();
+        $this->registerDefaultRoles();
+        $this->registerServicePermissions();
     }
 
     /**
@@ -23,7 +23,7 @@ abstract class BaseBouncerSeeder extends Seeder
      *
      * @return void
      */
-    protected function registerDefaults()
+    protected function registerDefaultRoles()
     {
         // Register superadmin role
         Bouncer::allow('superadmin')->everything();
@@ -40,9 +40,12 @@ abstract class BaseBouncerSeeder extends Seeder
     }
 
     /**
-     * Register service roles and permissions.
+     * Register service permissions from the `App\Providers\MicroserviceRegistryProvider`.
      *
      * @return void
      */
-    abstract protected function register();
+    protected function registerServicePermissions()
+    {
+        app('microservice')->setupBouncerPermissions();
+    }
 }

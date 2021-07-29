@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Providers;
+namespace App\Providers\Common;
 
 use Illuminate\Support\ServiceProvider;
 use Keiko\Uuid\Shortener\Dictionary;
 use Keiko\Uuid\Shortener\Shortener;
 
-class UuidShortenerProvider extends ServiceProvider
+class UuidShortenerServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.

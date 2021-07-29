@@ -92,23 +92,7 @@ $app->routeMiddleware([]);
 |
 */
 
-$app->register(App\Providers\AppServiceProvider::class);
-$app->register(App\Providers\AuthServiceProvider::class);
-$app->register(App\Providers\EventServiceProvider::class);
-
-$app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
-$app->register(mmghv\LumenRouteBinding\DingoServiceProvider::class);
-
-$app->register(App\Providers\RabbitEventsServiceProvider::class);
-$app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
-$app->register(Spatie\EventSourcing\EventSourcingServiceProvider::class);
-
-$app->alias('cache', \Illuminate\Cache\CacheManager::class);
-$app->register(Silber\Bouncer\BouncerServiceProvider::class);
-
-$app->register(Dyrynda\Database\LaravelEfficientUuidServiceProvider::class);
-$app->register(App\Providers\UuidShortenerProvider::class);
-$app->register(App\Providers\RouteBindingServiceProvider::class);
+$app->register(App\Providers\Common\AppServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

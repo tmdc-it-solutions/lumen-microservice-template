@@ -3,7 +3,9 @@ FROM php:8.0-fpm-alpine
 # Install dependencies
 RUN apk add rsync
 RUN apk add supervisor
+RUN apk add gmp-dev
 
+RUN docker-php-ext-install gmp
 RUN docker-php-ext-install sockets
 RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install bcmath

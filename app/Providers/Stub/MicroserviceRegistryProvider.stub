@@ -1,0 +1,51 @@
+<?php
+
+namespace App\Providers;
+
+use App\Providers\Interface\MicroserviceRegistryInterface;
+use Silber\Bouncer\BouncerFacade as Bouncer;
+
+class MicroserviceRegistryProvider implements MicroserviceRegistryInterface
+{
+
+    public function setupBouncerPermissions(): void
+    {
+        Bouncer::allow('admin')->to('ban-users');
+    }
+
+    public function getRouteBindings(): array
+    {
+        return [
+            'playerUpgrade' => 'App\Models\PlayerUpgrade'
+        ];
+    }
+
+    public function getDatabaseSeedersInOrder(): array
+    {
+        return [
+            'Common\\BouncerSeeder'
+        ];
+    }
+
+    public function getRabbitEventListeners(): array
+    {
+        return [
+            'some.event' => [
+                Listener::class
+            ],
+            'something.*' => [
+                WildcardListener::class
+            ]
+        ];
+    }
+
+    public function getEventListeners(): array
+    {
+        return [];
+    }
+
+    public function getSubscribers(): array
+    {
+        return [];
+    }
+}

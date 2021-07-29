@@ -64,6 +64,6 @@
         "test-dox": "./vendor/bin/phpunit --testdox",
         "make-rabbitevents-conf": "./scripts/generate-rabbitevents-conf.sh",
         "make-api-doc": "php artisan api:docs --output-file DOCUMENTATION.apib",
-        "make-permissions": "php artisan db:seed --class=BouncerSeeder"
+        "make-permissions": "php artisan db:seed --class='Database\\Seeders\\Common\\BouncerSeeder'"
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace App\Providers\Common;
 
 use App\Events\Http\RequestHandled;
 use Illuminate\Log\Events\MessageLogged;
@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Jaeger\Config;
 use OpenTracing\GlobalTracer;
+use OpenTracing\Tracer;
 use Ramsey\Uuid\Uuid;
 
 class JaegerServiceProvider extends ServiceProvider
@@ -17,7 +18,10 @@ class JaegerServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerConfig();
-        $this->registerGlobalTracer();
+
+        $tracer = $this->registerGlobalTracer();
+        $this->registerGlobalSpan($tracer);
+
         $this->registerListeners();
     }
 
@@ -33,11 +37,15 @@ class JaegerServiceProvider extends ServiceProvider
         $config->initializeTracer();
     }
 
-    protected function registerGlobalTracer(): void
+    protected function registerGlobalTracer(): Tracer
     {
         $tracer = GlobalTracer::get();
         $this->app->instance('jaeger.tracer', $tracer);
+        return $tracer;
+    }
 
+    protected function registerGlobalSpan(Tracer $tracer): void
+    {
         $globalSpan = $tracer->startSpan('app');
         $globalSpan->setTag('type', $this->getServiceType());
         $globalSpan->setTag('uuid', app('jaeger.uuid'));
