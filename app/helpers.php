@@ -25,3 +25,31 @@ if (!function_exists('app_path')) {
         return app()->basePath() . ($path ? '/' . $path : $path);
     }
 }
+
+if (!function_exists('reduce_uuid')) {
+
+    /**
+     * Reduces the a long UUID into short length.
+     *
+     * @param  string $longUuid
+     * @return string
+     */
+    function reduce_uuid($longUuid)
+    {
+        return app('uuid.shortener')->reduce($longUuid);
+    }
+}
+
+if (!function_exists('expand_uuid')) {
+
+    /**
+     * Expand the a short UUID into full length.
+     *
+     * @param  string $longUuid
+     * @return string
+     */
+    function expand_uuid($shortUuid)
+    {
+        return app('uuid.shortener')->expand($shortUuid);
+    }
+}

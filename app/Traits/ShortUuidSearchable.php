@@ -22,7 +22,7 @@ trait ShortUuidSearchable
 
     public function findByShortUuid($shortUuid)
     {
-        $uuid = app('uuid.shortener')->expand($shortUuid);
+        $uuid = expand_uuid($shortUuid);
         $result = static::whereUuid($uuid)->first();
 
         if (!$result) {
