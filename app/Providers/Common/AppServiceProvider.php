@@ -49,6 +49,7 @@ class AppServiceProvider extends ServiceProvider
         $app->register(UuidShortenerServiceProvider::class);
         $app->register(RouteBindingServiceProvider::class);
         $app->register(RabbitEventsServiceProvider::class);
+        $app->register(TransformerServiceProvider::class);
     }
 
     /**

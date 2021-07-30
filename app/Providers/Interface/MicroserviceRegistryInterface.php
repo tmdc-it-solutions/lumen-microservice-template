@@ -18,6 +18,13 @@ interface MicroserviceRegistryInterface
     public function getDatabaseSeedersInOrder(): array;
 
     /**
+     * Transformer bindings to be registered by `App\Providers\Common\TransformerServiceProvider`.
+     *
+     * @return array
+     */
+    public function getTransformerBindings(): array;
+
+    /**
      * Route bindings to be registered by `App\Providers\Common\RouteBindingServiceProvider`.
      *
      * @return array

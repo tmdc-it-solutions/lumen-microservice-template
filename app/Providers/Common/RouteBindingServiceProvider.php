@@ -14,11 +14,11 @@ class RouteBindingServiceProvider extends BaseServiceProvider
         $routeBindings = app('microservice')->getRouteBindings();
 
         foreach ($routeBindings as $key => $model) {
-            $this->bindShortUuidToModel($key, $model);
+            $this->bindRouteToModel($key, $model);
         }
     }
 
-    protected function bindShortUuidToModel(string $key, string $model)
+    protected function bindRouteToModel(string $key, string $model)
     {
         $this->binder->bind($key, $this->getBinder($model));
     }
