@@ -4,7 +4,6 @@ namespace App\Providers\Common;
 
 use App\Providers\MicroserviceRegistryProvider;
 use Illuminate\Support\ServiceProvider;
-use LogicException;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * @param \Illuminate\Contracts\Foundation\Application
+     * Register microservice registry instance
      */
     private function registerMicroservice($app)
     {
@@ -32,11 +31,17 @@ class AppServiceProvider extends ServiceProvider
         $app->instance('microservice', $registry);
     }
 
+    /**
+     * Register aliases
+     */
     private function registerAliases($app)
     {
         $app->alias('cache', \Illuminate\Cache\CacheManager::class);
     }
 
+    /**
+     * Register common services
+     */
     private function registerCommons($app)
     {
         $app->register(AuthServiceProvider::class);
@@ -46,6 +51,9 @@ class AppServiceProvider extends ServiceProvider
         $app->register(RabbitEventsServiceProvider::class);
     }
 
+    /**
+     * Register third-party services
+     */
     private function registerThirdParties($app)
     {
         $app->register(\Tymon\JWTAuth\Providers\LumenServiceProvider::class);
