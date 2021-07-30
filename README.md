@@ -5,6 +5,8 @@ Long-lived distributed transactions follow the event/choreography-based [Saga pa
 
 ## Installation
 
+### Manual installation
+
 1. Clone the repository.
 2. Copy `.env.example` as `.env`. Tweak accordingly.
 3. Copy `phpunit.xml.dist` as `phpunit.xml`. Tweak accordingly.
@@ -12,7 +14,11 @@ Long-lived distributed transactions follow the event/choreography-based [Saga pa
     - `oauth-private.key` - It is a private RSA key generated. It is used to generate access tokens for clients to use. This is required by issuers.
     - `oauth-public.key` - It is a public RSA key provided by the API gateway. It is used for verifying the signature of access tokens. This is required by clients.
 5. Copy `app/Providers/Stub/MicroserviceRegistryProvider.stub` to `app/Providers/MicroserviceRegistryProvider.php`. Tweak accordingly.
-6. Build using `docker-compose` (See Usage).
+6. Build using `docker-compose` [(See Usage)](#usage).
+
+### Automatic installation
+
+Using `make`, you can run `make install` to install the microservice. You just have to tweak the copied files and provide the necessary keys in the `storage/keys` directory.
 
 ## Usage
 
@@ -93,7 +99,7 @@ Run artisan commands
 $ php artisan
 ```
 
-### Roles Seeding
+### Roles and Permissions Seeding
 
 Run the `BouncerSeeder` class to seed default roles from `config/roles.php` and your service's permission rules:
 
