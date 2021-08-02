@@ -18,7 +18,11 @@ Long-lived distributed transactions follow the event/choreography-based [Saga pa
 
 ### Automatic installation
 
-Using `make`, you can run `make install` to install the microservice. You just have to tweak the copied files and provide the necessary keys in the `storage/keys` directory.
+Using `make`, you can run `make install` to install the microservice files automatically.
+
+1. You just have to tweak the copied files,
+2. Provide the necessary keys in the `storage/keys` directory,
+3. And either run `make build-dev` or `make-prod` depending on your environment.
 
 ## Usage
 
@@ -38,32 +42,32 @@ While you are in the project folder, access the Lumen shell:
 $ docker-compose exec lumen sh
 ```
 
-If your development environment is running on Linux (or even WSL), you can setup a bash alias in your `~/.bashrc`. Like so:
-
-```bash
-alias lumen='bash scripts/lumen-shell.sh'
-```
-
-Then you can quickly access a Lumen shell using:
-
-```bash
-$ lumen
-```
-
 ### Makefile
 
 Alternatively, you can use `make` and the provided `Makefile` to perfom commonly used commands.
 
-Run docker-compose build:
+### Build Docker images
+Run docker-compose build for either development or production images:
 
 ```bash
-$ make build
+$ make build-dev
 ```
 
-Run docker-compose services in detached mode:
+```bash
+$ make build-prod
+```
+
+### Manage Docker containers
+Run docker-compose services in detached development mode. It will copy over the `vendor` folder to your workspace:
 
 ```bash
-$ make up
+$ make dev
+```
+
+Run docker-compose services in detached production mode. No `vendor` folder will copied to your workspace:
+
+```bash
+$ make prod
 ```
 
 Shutdown docker-compose services:
@@ -77,6 +81,7 @@ Access a Lumen shell:
 ```bash
 $ make shell
 ```
+
 ## Making Requests
 
 To interface with the API, requests sent to it must have a proper `Accept` header like:
