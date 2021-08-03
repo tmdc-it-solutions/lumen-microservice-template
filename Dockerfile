@@ -1,3 +1,6 @@
+#########################################
+# image for development build environment
+########################################
 FROM php:8.0-fpm-alpine AS development
 
 # Install dependencies
@@ -33,7 +36,9 @@ COPY supervisord.conf /etc/supervisord.conf
 # Move to actual working directory
 WORKDIR /var/www/html
 
-# Production-optimized build
+#########################################
+# image for production build environment
+########################################
 FROM php:8.0-fpm-alpine
 
 # Install dependencies
