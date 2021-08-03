@@ -2721,16 +2721,16 @@
         },
         {
             "name": "jozi/laravel-rabbitevents-sourcing",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jg-rivera/laravel-rabbitevents-sourcing.git",
-                "reference": "541777f0255e6f90547112b968139b9d6c2d9df7"
+                "reference": "95901b90fffe24b9d912538228bc71d38c146091"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jg-rivera/laravel-rabbitevents-sourcing/zipball/541777f0255e6f90547112b968139b9d6c2d9df7",
-                "reference": "541777f0255e6f90547112b968139b9d6c2d9df7",
+                "url": "https://api.github.com/repos/jg-rivera/laravel-rabbitevents-sourcing/zipball/95901b90fffe24b9d912538228bc71d38c146091",
+                "reference": "95901b90fffe24b9d912538228bc71d38c146091",
                 "shasum": ""
             },
             "require": {
@@ -2761,9 +2761,9 @@
             "description": "Integration between nuwber/rabbitevents and spatie/laravel-event-sourcing packages",
             "support": {
                 "issues": "https://github.com/jg-rivera/laravel-rabbitevents-sourcing/issues",
-                "source": "https://github.com/jg-rivera/laravel-rabbitevents-sourcing/tree/1.0.1"
+                "source": "https://github.com/jg-rivera/laravel-rabbitevents-sourcing/tree/1.0.2"
             },
-            "time": "2021-07-13T02:01:04+00:00"
+            "time": "2021-08-02T03:42:07+00:00"
         },
         {
             "name": "keiko/uuid-shortener",

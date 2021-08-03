@@ -3,9 +3,19 @@
 namespace Tests;
 
 use Laravel\Lumen\Testing\TestCase as BaseTestCase;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 abstract class TestCase extends BaseTestCase
 {
+    /** @var array $headers */
+    public $headers;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->headers = [];
+    }
+
     /**
      * Creates the application.
      *
@@ -17,14 +27,22 @@ abstract class TestCase extends BaseTestCase
     }
 
     /**
-     * Create headers array with Accept header attached.
-     *
-     * @return array
+     * Attach Accept header to headers.
      */
-    public function withAcceptHeader(array $headers)
+    public function withAcceptHeader()
     {
         $subtype = env('API_SUBTYPE', 'appname');
-        $headers['Accept'] = "application/vnd.$subtype.v1+json";
-        return $headers;
+        $this->headers['Accept'] = "application/vnd.$subtype.v1+json";
+        return $this;
+    }
+
+    /**
+     * Attach Authorization Bearer header to headers.
+     */
+    public function withAuthHeader($user)
+    {
+        $token = JWTAuth::fromUser($user);
+        $this->headers['Authorization'] = "Bearer {$token}";
+        return $this;
     }
 }
