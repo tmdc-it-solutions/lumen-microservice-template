@@ -10,9 +10,9 @@ class ServiceDiscoveryTest extends TestCase
     public function testShouldGetCorrectNameAndVersion()
     {
         $data = [];
-        $headers = $this->withAcceptHeader([]);
 
-        $this->json('GET', '/api/discovery', $data, $headers)
+        $this->withAcceptHeader()
+            ->json('GET', '/api/discovery', $data, $this->headers)
             ->seeJson([
                 'name' => config('app.name'),
                 'version' => app()->version()
