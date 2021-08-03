@@ -19,7 +19,7 @@ dev:
 	docker-compose -f $(PROD_COMPOSE) -f $(DEV_COMPOSE) up -d
 
 down:
-	docker-compose down
+	docker-compose down --remove-orphans
 
 shell:
 	docker-compose exec lumen sh
