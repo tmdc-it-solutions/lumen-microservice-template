@@ -42,11 +42,27 @@ jobs:
             - name: Acquire .env
               run: cp .env.ci .env
 
-            - name: Copy microservice registry stub to providers
+            - if: hashFiles('app/Providers/MicroserviceRegistryProvider.php') == ''
+              name: Copy microservice registry stub to providers
               run: cp app/Providers/Stub/MicroserviceRegistryProvider.stub app/Providers/MicroserviceRegistryProvider.php
+
+            - name: Generate RSA keys
+              run: |
+                  ssh-keygen -t rsa -N "" -f temp -m pkcs8
+                  ssh-keygen -f temp.pub -e -m pkcs8 > oauth.pub
+                  mv temp oauth-private.key
+                  mv oauth.pub oauth-public.key
+                  rm temp.pub
+              working-directory: storage/keys
+
+            - name: Run migrations and seeders
+              run: php artisan migrate:fresh --seed
 
             - name: Run lint
               run: composer lint
 
             - name: Run test
               run: composer test
+              env:
+                  JWT_PUBLIC_KEY: file://${{ github.workspace }}/storage/keys/oauth-public.key
+                  JWT_PRIVATE_KEY: file://${{ github.workspace }}/storage/keys/oauth-private.key
