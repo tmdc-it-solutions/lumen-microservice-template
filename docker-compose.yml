@@ -4,16 +4,6 @@ services:
     lumen:
         build:
             context: .
+            target: production
         ports:
             - "${APP_PORT:-8000}:8000"
-        volumes:
-            - .:/var/www/html
-        command: /var/www/html/scripts/entry-point.sh
-        networks:
-            - microservice
-networks:
-    microservice:
-        driver: bridge
-volumes:
-    mysql-data:
-        driver: local

@@ -1,23 +1,22 @@
 #########################################
-# image for development build environment
+# image for base build environment
 ########################################
-FROM php:8.0-fpm-alpine AS development
+FROM php:8.0-fpm-alpine as base
 
 # Install dependencies
-RUN apk add rsync
-RUN apk add supervisor
-RUN apk add gmp-dev
+RUN apk add rsync supervisor gmp-dev
+RUN docker-php-ext-install gmp sockets pdo_mysql bcmath pcntl
 
-RUN docker-php-ext-install gmp
-RUN docker-php-ext-install sockets
-RUN docker-php-ext-install pdo_mysql
-RUN docker-php-ext-install bcmath
-RUN docker-php-ext-install pcntl
-
+# Install composer
 RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
 
-# Create user
+# Create non-root user
 RUN addgroup -S appgroup -g 1000 && adduser -S appuser -G appgroup -u 1000
+
+#########################################
+# image for dev build environment
+########################################
+FROM base as development
 
 # Set up cache directory
 RUN mkdir /var/www/cache
@@ -39,32 +38,17 @@ WORKDIR /var/www/html
 #########################################
 # image for production build environment
 ########################################
-FROM php:8.0-fpm-alpine
-
-# Install dependencies
-RUN apk add supervisor
-RUN apk add gmp-dev
-
-RUN docker-php-ext-install gmp
-RUN docker-php-ext-install sockets
-RUN docker-php-ext-install pdo_mysql
-RUN docker-php-ext-install bcmath
-RUN docker-php-ext-install pcntl
-
-RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
-
-# Create user
-RUN addgroup -S appgroup -g 1000 && adduser -S appuser -G appgroup -u 1000
+FROM base as production
 
 # Move to actual working directory
 USER appuser
 WORKDIR /var/www/html
 
 # Install composer packages
-COPY composer.* ./
+COPY --chown=appuser:appgroup . .
 RUN composer install
 
 # Install supervisor
 COPY supervisord.conf /etc/supervisord.conf
 
-CMD [ "supervisord -c /etc/supervisord.conf" ]
+CMD [ "supervisord", "-c", "/etc/supervisord.conf" ]
