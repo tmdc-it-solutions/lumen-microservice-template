@@ -5,6 +5,13 @@ namespace App\Providers\Interface;
 interface MicroserviceRegistryInterface
 {
     /**
+     * Register any application services.
+     * 
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     */
+    public function register($app): void;
+
+    /**
      * Bouncer permissions to be seeded `Database\Seeders\Common\BouncerSeeder`.
      * Use the `Silber\Bouncer\BouncerFacade` facade to setup permissions.
      * Default roles from `config/roles.php` are seeded first.

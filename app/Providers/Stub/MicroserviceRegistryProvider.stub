@@ -8,6 +8,10 @@ use Silber\Bouncer\BouncerFacade as Bouncer;
 class MicroserviceRegistryProvider implements MicroserviceRegistryInterface
 {
 
+    public function register($app): void
+    {
+    }
+
     public function setupBouncerPermissions(): void
     {
         Bouncer::allow('admin')->to('ban-users');

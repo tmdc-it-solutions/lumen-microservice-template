@@ -20,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
         $this->registerAliases($app);
         $this->registerCommons($app);
         $this->registerThirdParties($app);
+
+        app('microservice')->register($app);
     }
 
     /**
