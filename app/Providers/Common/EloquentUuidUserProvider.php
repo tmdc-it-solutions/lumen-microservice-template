@@ -15,10 +15,11 @@ class EloquentUuidUserProvider extends EloquentUserProvider
      */
     public function retrieveById($identifier)
     {
+        $uuid = expand_uuid($identifier);
         $model = $this->createModel();
 
         return $this->newModelQuery($model)
-            ->whereUuid($identifier)
+            ->whereUuid($uuid)
             ->first();
     }
 
@@ -31,10 +32,11 @@ class EloquentUuidUserProvider extends EloquentUserProvider
      */
     public function retrieveByToken($identifier, $token)
     {
+        $uuid = expand_uuid($identifier);
         $model = $this->createModel();
 
         $retrievedModel = $this->newModelQuery($model)->whereUuid(
-            $identifier
+            $uuid
         )->first();
 
         if (!$retrievedModel) {
