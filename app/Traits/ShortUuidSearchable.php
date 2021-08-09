@@ -20,21 +20,26 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 trait ShortUuidSearchable
 {
 
-    public function findByShortUuid($shortUuid)
+    public function getShortUuid()
+    {
+        return reduce_uuid($this->uuid);
+    }
+
+    public static function findByShortUuid($shortUuid)
     {
         $uuid = expand_uuid($shortUuid);
         $result = static::whereUuid($uuid)->first();
 
         if (!$result) {
-            throw new NotFoundHttpException($this->getModelName() . ' not found');
+            throw new NotFoundHttpException(static::getModelName() . ' not found');
         }
 
         return $result;
     }
 
-    private function getModelName()
+    private static function getModelName()
     {
-        $tableName = $this->getTable();
-        return Str::studly(Str::singular($tableName));
+        $path = explode('\\', static::class);
+        return array_pop($path);
     }
 }

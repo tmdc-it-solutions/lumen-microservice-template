@@ -6,7 +6,7 @@ interface MicroserviceRegistryInterface
 {
     /**
      * Register any application services.
-     * 
+     *
      * @param \Illuminate\Contracts\Foundation\Application $app
      */
     public function register($app): void;
